@@ -2,9 +2,13 @@
 
 ## 🎯 Objective
 Welcome to the year 2912, where data science skills are needed to solve a cosmic mystery. 🌠 Four light-years away, distress signals have been received, and the situation looks dire. 🚨
+
 The Spaceship Titanic, an interstellar passenger liner, was launched a month ago with nearly 13,000 passengers. 🛸 It embarked on its maiden voyage, transporting emigrants from our solar system to three newly habitable exoplanets orbiting nearby stars. 🌍🌟
+
 While orbiting Alpha Centauri en route to its first destination, the scorching 55 Cancri E, the unsuspecting Spaceship Titanic collided with a space-time anomaly hidden within a dust cloud. 🌌 Unfortunately, it met a fate similar to its namesake from 1000 years ago. Although the ship remained intact, nearly half of the passengers were transported to an alternate dimension! 🌀
+
 To assist rescue crews in recovering the lost passengers, you must predict which passengers were transported by the anomaly using the records recovered from the ship's damaged computer system. 💻
+
 This project is part of a Kaggle challenge to help save the passengers and change history! 🏆
 
 ## ⚙️ Functionality
