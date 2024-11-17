@@ -66,13 +66,26 @@ This project is part of a Kaggle challenge to help save the passengers and chang
 The project is deployed as an interactive web application using Streamlit. Users can explore the data, visualize results, and interact with the predictive models. 🌟
 
 ## 📁 Project Structure
-- App
-- Data
-- Notebook
+- **App** 📂: Application code
+- **Data** 📊: Datasets and data files
+- **Notebook** 📓: Jupyter notebooks
+- **Images** 🖼️: Project images
 
 ## 📞 Contact
 For any questions or feedback, please reach out to:
 - **Email**: jotaduranbon.com 📧
+- **LinkedIn**: [Juan Duran Bon](https://www.linkedin.com/in/juan-duran-bon) 🔗
+
+## 🤝 Collaborations and Suggestions
+We welcome collaborations and suggestions! Here are some ways you can contribute:
+- **Open an Issue**: If you find a bug or have a feature request, please open an issue on GitHub. 🐛
+- **Submit a Pull Request**: If you want to contribute code, fork the repository and submit a pull request. We appreciate all contributions! 💻
+- **Share Ideas**: Have an idea to improve the project? Share it with us through GitHub discussions or contact us directly. 💡
+- **Spread the Word**: If you like this project, share it with others who might find it useful. 🌍
+
+Let's make this project better together! 🌟
+
+Thank you for your interest and support! 🚀
 
 
 
