@@ -2,6 +2,12 @@
 
 ![Spaceship](images/nave.png)
 
+![Commits](https://img.shields.io/github/commit-activity/m/Jotis86/Spaceship-Titanic-Rescue-Mission)
+![Issues Abiertas](https://img.shields.io/github/issues/Jotis86/Spaceship-Titanic-Rescue-Mission)
+![Pull Requests](https://img.shields.io/github/issues-pr/Jotis86/Spaceship-Titanic-Rescue-Mission)
+![Forks](https://img.shields.io/github/forks/Jotis86/Spaceship-Titanic-Rescue-Mission)
+![Tamaño del Repositorio](https://img.shields.io/github/repo-size/Jotis86/Spaceship-Titanic-Rescue-Mission)
+
 ## 🎯 Objective
 Welcome to the year 2912, where data science skills are needed to solve a cosmic mystery. 🌠 Four light-years away, distress signals have been received, and the situation looks dire. 🚨
 
