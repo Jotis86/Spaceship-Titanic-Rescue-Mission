@@ -1,5 +1,7 @@
 # 🚀 Spaceship Titanic Rescue Mission 🌌
 
+![Spaceship](images/nave.png)
+
 ## 🎯 Objective
 Welcome to the year 2912, where data science skills are needed to solve a cosmic mystery. 🌠 Four light-years away, distress signals have been received, and the situation looks dire. 🚨
 
