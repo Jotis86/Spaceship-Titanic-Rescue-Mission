@@ -7,6 +7,8 @@
 ![Pull Requests](https://img.shields.io/github/issues-pr/Jotis86/Spaceship-Titanic-Rescue-Mission)
 ![Forks](https://img.shields.io/github/forks/Jotis86/Spaceship-Titanic-Rescue-Mission)
 ![Tamaño del Repositorio](https://img.shields.io/github/repo-size/Jotis86/Spaceship-Titanic-Rescue-Mission)
+![Autor](https://img.shields.io/badge/Autor-Juan%20Duran%20Bon-blue)
+![Licencia](https://img.shields.io/github/license/Jotis86/Spaceship-Titanic-Rescue-Mission)
 
 ## 🎯 Objective
 Welcome to the year 2912, where data science skills are needed to solve a cosmic mystery. 🌠 Four light-years away, distress signals have been received, and the situation looks dire. 🚨
@@ -82,6 +84,11 @@ We welcome collaborations and suggestions! Here are some ways you can contribute
 - **Submit a Pull Request**: If you want to contribute code, fork the repository and submit a pull request. We appreciate all contributions! 💻
 - **Share Ideas**: Have an idea to improve the project? Share it with us through GitHub discussions or contact us directly. 💡
 - **Spread the Word**: If you like this project, share it with others who might find it useful. 🌍
+
+
+## 📜 License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 Let's make this project better together! 🌟
 
