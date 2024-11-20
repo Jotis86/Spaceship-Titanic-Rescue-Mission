@@ -12,10 +12,12 @@ scaler = joblib.load('Notebook/scaler.pkl')
 st.title('🚀 Passenger Transport Prediction 🌌')
 st.image('images/Cat_2.png')
 
-# Navigation menu
-menu = st.sidebar.selectbox('Menu', ['Project Objectives', 'Development Process', 'Tools Used', 'Visualizations', 'Predictions'])
+# Sidebar with image and navigation buttons
+st.sidebar.image('images/nave.png', use_column_width=True)
+st.sidebar.title('Navigation')
+page = st.sidebar.radio('Go to', ['Project Objectives', 'Development Process', 'Tools Used', 'Visualizations', 'Predictions'])
 
-if menu == 'Project Objectives':
+if page == 'Project Objectives':
     st.header('🎯 Project Objectives')
     st.write("""
     Welcome to the Passenger Transport Prediction project for the Spaceship Titanic rescue mission. 
@@ -29,7 +31,7 @@ if menu == 'Project Objectives':
     As a result, nearly half of the passengers were transported to an alternate dimension. The mission now is to predict which passengers were transported using the records recovered from the ship's damaged computer system.
     """)
 
-elif menu == 'Development Process':
+elif page == 'Development Process':
     st.header('🛤️ Development Process')
     st.write("""
     The development process for this project involved several key steps:
@@ -44,7 +46,7 @@ elif menu == 'Development Process':
     Each of these steps was crucial in building a robust model capable of accurately predicting whether a passenger was transported.
     """)
 
-elif menu == 'Tools Used':
+elif page == 'Tools Used':
     st.header('🛠️ Tools Used')
     st.write("""
     The following tools and libraries were used in this project:
@@ -59,7 +61,7 @@ elif menu == 'Tools Used':
     These tools provided the necessary functionality to preprocess the data, train the model, and build the web application.
     """)
 
-elif menu == 'Visualizations':
+elif page == 'Visualizations':
     st.header('📊 Visualizations')
     
     # Display images stored in the images folder
@@ -98,7 +100,7 @@ elif menu == 'Visualizations':
     It helps to understand which features have the most significant impact on the prediction of whether a passenger was transported.
     """)
 
-elif menu == 'Predictions':
+elif page == 'Predictions':
     st.header('🔮 Predictions')
     
     # Create input forms
@@ -143,7 +145,13 @@ elif menu == 'Predictions':
     prediction = model.predict(input_data_scaled)
 
     # Display the result
-    st.write('Prediction:', 'Transported' if prediction[0] else 'Not Transported')
+    st.write('Prediction:', '🚀 Transported to another dimension! 🌌' if prediction[0] else '😔 Not transported, still here.')
 
-# Button to go to the GitHub repository
-st.sidebar.markdown("[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue)](https://github.com/Jotis86/Spaceship-Titanic-Rescue-Mission)")
+# Custom GitHub button
+st.sidebar.markdown("""
+    <a href="https://github.com/Jotis86/Spaceship-Titanic-Rescue-Mission" target="_blank">
+        <button style="background-color:blue;color:white;padding:10px;border-radius:5px;border:none;cursor:pointer;">
+            GitHub Repo
+        </button>
+    </a>
+""", unsafe_allow_html=True)
