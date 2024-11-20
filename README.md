@@ -67,6 +67,8 @@ This project is part of a Kaggle challenge to help save the passengers and chang
 ## 🌐 Streamlit App
 The project is deployed as an interactive web application using Streamlit. Users can explore the data, visualize results, and interact with the predictive models. 🌟
 
+You can access the deployed application [here](https://spaceship-titanic-rescue-mission-jldmxrnem3ltcymgjjeggk.streamlit.app/).
+
 ## 📁 Project Structure
 - **App** 📂: Application code
 - **Data** 📊: Datasets and data files
