@@ -45,7 +45,7 @@ elif page == 'Tools Used':
     st.write("""
     The following tools and libraries were used in this project:
     
-    - **Python** ���: Programming language
+    - **Python** : Programming language
     - **Pandas** 🐼: Data manipulation
     - **NumPy** 🔢: Numerical computations
     - **Matplotlib & Seaborn** 📊: Data visualization
