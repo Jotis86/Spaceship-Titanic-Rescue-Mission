@@ -2,11 +2,19 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import joblib
+import sklearn
+
+# Verificar versiones de las bibliotecas
+st.write(f"scikit-learn version: {sklearn.__version__}")
+st.write(f"joblib version: {joblib.__version__}")
 
 # Load the model, One-Hot encoder, and scaler
-model = joblib.load('Notebook/gradient_boosting_model.pkl')
-one_hot_encoder = joblib.load('Notebook/one_hot_encoder.pkl')
-scaler = joblib.load('Notebook/scaler.pkl')
+try:
+    model = joblib.load('Notebook/gradient_boosting_model.pkl')
+    one_hot_encoder = joblib.load('Notebook/one_hot_encoder.pkl')
+    scaler = joblib.load('Notebook/scaler.pkl')
+except Exception as e:
+    st.error(f"Error loading model or encoders: {e}")
 
 # Title and main image
 st.title('🚀 Passenger Transport Prediction 🌌')
