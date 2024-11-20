@@ -5,5 +5,3 @@ scikit-learn
 matplotlib
 seaborn
 joblib
-setuptools
-wheel
