@@ -1,9 +1,9 @@
 streamlit
 pandas
 numpy
-scikit-learn==1.0.2
+scikit-learn
 matplotlib
 seaborn
-joblib==1.1.0
+joblib
 setuptools
 wheel
