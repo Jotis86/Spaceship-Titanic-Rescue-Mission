@@ -1,110 +1,104 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import MinMaxScaler, OneHotEncoder
-from sklearn.ensemble import GradientBoostingClassifier
 
-# Cargar los datos
-TRAIN_CSV = "C:/Users/juane/OneDrive/Escritorio/Datos/Kaggle_Titanic/train.csv"
-TEST_CSV = "C:/Users/juane/OneDrive/Escritorio/Datos/Kaggle_Titanic/test.csv"
-train_df = pd.read_csv(TRAIN_CSV, usecols=['HomePlanet', 'CryoSleep', 'Destination', 'Age', 'VIP', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'Transported'])
-test_df = pd.read_csv(TEST_CSV, usecols=['HomePlanet', 'CryoSleep', 'Destination', 'Age', 'VIP', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck'])
-all_data_df = pd.concat([train_df, test_df], keys=['train', 'test'])
+# Title and main image
+st.title('🚀 Passenger Transport Prediction 🌌')
+st.image('images/Cat_2.png')
 
-# Manejar valores faltantes
-all_data_df['Age'].fillna(all_data_df['Age'].mean(), inplace=True)
-all_data_df['RoomService'].fillna(all_data_df['RoomService'].mean(), inplace=True)
-all_data_df['FoodCourt'].fillna(all_data_df['FoodCourt'].mean(), inplace=True)
-all_data_df['ShoppingMall'].fillna(all_data_df['ShoppingMall'].mean(), inplace=True)
-all_data_df['Spa'].fillna(all_data_df['Spa'].mean(), inplace=True)
-all_data_df['VRDeck'].fillna(all_data_df['VRDeck'].mean(), inplace=True)
-all_data_df['HomePlanet'].fillna(all_data_df['HomePlanet'].mode()[0], inplace=True)
-all_data_df['CryoSleep'].fillna(all_data_df['CryoSleep'].mode()[0], inplace=True)
-all_data_df['Destination'].fillna(all_data_df['Destination'].mode()[0], inplace=True)
-all_data_df['VIP'].fillna(all_data_df['VIP'].mode()[0], inplace=True)
-all_data_df['Transported'].fillna(all_data_df['Transported'].mode()[0], inplace=True)
+# Sidebar with image and navigation buttons
+st.sidebar.image('images/nave.png', use_column_width=True)
+st.sidebar.title('Navigation')
+page = st.sidebar.radio('Go to', ['Project Objectives', 'Development Process', 'Tools Used', 'Visualizations'])
 
-# Feature Engineering
-all_data_df['TotalSpending'] = all_data_df['RoomService'] + all_data_df['FoodCourt'] + all_data_df['ShoppingMall'] + all_data_df['Spa'] + all_data_df['VRDeck']
-all_data_df['SpendingPerAge'] = all_data_df['TotalSpending'] / (all_data_df['Age'] + 1)
+if page == 'Project Objectives':
+    st.header('🎯 Project Objectives')
+    st.write("""
+    Welcome to the Passenger Transport Prediction project for the Spaceship Titanic rescue mission. 
+    The goal of this project is to predict whether a passenger was transported to an alternate dimension using 
+    machine learning techniques. This project is part of a Kaggle challenge to help save the passengers and change history.
+    
+    In the year 2912, the Spaceship Titanic, an interstellar passenger liner, was launched with nearly 13,000 passengers. 
+    It embarked on its maiden voyage, transporting emigrants from our solar system to three newly habitable exoplanets orbiting nearby stars.
+    
+    Unfortunately, while orbiting Alpha Centauri en route to its first destination, the Spaceship Titanic collided with a space-time anomaly hidden within a dust cloud. 
+    As a result, nearly half of the passengers were transported to an alternate dimension. The mission now is to predict which passengers were transported using the records recovered from the ship's damaged computer system.
+    """)
 
-# One-Hot Encoding
-one_hot_encoder = OneHotEncoder(drop='first', sparse_output=False)
-categorical_columns = ['HomePlanet', 'CryoSleep', 'Destination', 'VIP']
-encoded_features = one_hot_encoder.fit_transform(all_data_df[categorical_columns])
-encoded_df = pd.DataFrame(encoded_features, columns=one_hot_encoder.get_feature_names_out(categorical_columns))
-all_data_df = all_data_df.reset_index(drop=True)
-all_data_df = pd.concat([all_data_df, encoded_df], axis=1)
+elif page == 'Development Process':
+    st.header('🛤️ Development Process')
+    st.write("""
+    The development process for this project involved several key steps:
+    
+    1. **Import Libraries** 📚: Import the necessary libraries for data analysis and visualization.
+    2. **Load Dataset** 📥: Load and combine the datasets.
+    3. **Initial Exploration** 🔍: Display the first few rows and all columns of the combined dataset.
+    4. **Data Cleaning** 🧹: Handle missing values and perform One-Hot encoding for categorical variables.
+    5. **Feature Engineering** 🛠️: Create new features and scale the data.
+    6. **Model Training** 🤖: Train the Gradient Boosting model and evaluate its performance.
+    
+    Each of these steps was crucial in building a robust model capable of accurately predicting whether a passenger was transported.
+    """)
 
-# Escalar los datos
-scaler = MinMaxScaler()
-features = ['Age', 'RoomService', 'FoodCourt', 'ShoppingMall', 'Spa', 'VRDeck', 'TotalSpending', 'SpendingPerAge'] + list(encoded_df.columns)
-X = all_data_df[features]
-X_scaled = scaler.fit_transform(X)
+elif page == 'Tools Used':
+    st.header('🛠️ Tools Used')
+    st.write("""
+    The following tools and libraries were used in this project:
+    
+    - **Python** ���: Programming language
+    - **Pandas** 🐼: Data manipulation
+    - **NumPy** 🔢: Numerical computations
+    - **Matplotlib & Seaborn** 📊: Data visualization
+    - **Scikit-learn** 🤖: Machine learning
+    - **Streamlit** 🌐: Web application framework
+    
+    These tools provided the necessary functionality to preprocess the data, train the model, and build the web application.
+    """)
 
-# Dividir los datos
-X_train = X_scaled[:len(train_df)]
-y_train = train_df['Transported'].astype(int)
-X_test = X_scaled[len(train_df):]
+elif page == 'Visualizations':
+    st.header('📊 Visualizations')
+    
+    # Display images stored in the images folder
+    st.subheader('Age Distribution 🎂')
+    st.image('images/Age.png')
+    st.write("""
+    This visualization shows the distribution of ages among the passengers. 
+    It helps to understand the age demographics of the passengers on the Spaceship Titanic.
+    """)
+    
+    st.subheader('Age Distribution by Transported Status 🚀')
+    st.image('images/Age_d.png')
+    st.write("""
+    This visualization shows the age distribution of passengers based on their transported status. 
+    It helps to identify any patterns or trends in the age groups that were more likely to be transported.
+    """)
+    
+    st.subheader('Service Spending Distribution 💸')
+    st.image('images/Services.png')
+    st.write("""
+    This visualization shows the distribution of spending on various services such as RoomService, FoodCourt, ShoppingMall, Spa, and VRDeck. 
+    It helps to understand the spending behavior of the passengers.
+    """)
+    
+    st.subheader('Age Distribution by Home Planet 🌍')
+    st.image('images/Age by planet.png')
+    st.write("""
+    This visualization shows the age distribution of passengers based on their home planet. 
+    It helps to identify any differences in age demographics among passengers from different planets.
+    """)
+    
+    st.subheader('Feature Importance in the Model 🔍')
+    st.image('images/features.png')
+    st.write("""
+    This visualization shows the importance of various features in the Gradient Boosting model. 
+    It helps to understand which features have the most significant impact on the prediction of whether a passenger was transported.
+    """)
 
-# Verificar el tamaño de los datos de entrenamiento
-st.write(f"Tamaño de X_train: {X_train.shape}")
-st.write(f"Tamaño de y_train: {y_train.shape}")
-
-# Entrenar el modelo
-gb_clf = GradientBoostingClassifier(random_state=42)
-gb_clf.fit(X_train, y_train)
-
-# Verificar la precisión del modelo en los datos de entrenamiento
-train_accuracy = gb_clf.score(X_train, y_train)
-st.write(f"Precisión del modelo en los datos de entrenamiento: {train_accuracy}")
-
-# Crear la aplicación en Streamlit
-st.title('Predicción de Transporte de Pasajeros')
-st.write('Introduce los datos del pasajero para predecir si será transportado o no.')
-
-# Crear formularios de entrada
-home_planet = st.selectbox('Home Planet', ['Europa', 'Earth', 'Mars'])
-cryo_sleep = st.selectbox('Cryo Sleep', ['True', 'False'])
-destination = st.selectbox('Destination', ['TRAPPIST-1e', '55 Cancri e', 'PSO J318.5-22'])
-age = st.slider('Age', 0, 100, 25)
-vip = st.selectbox('VIP', ['True', 'False'])
-room_service = st.number_input('Room Service', 0.0, 10000.0, 0.0)
-food_court = st.number_input('Food Court', 0.0, 10000.0, 0.0)
-shopping_mall = st.number_input('Shopping Mall', 0.0, 10000.0, 0.0)
-spa = st.number_input('Spa', 0.0, 10000.0, 0.0)
-vr_deck = st.number_input('VR Deck', 0.0, 10000.0, 0.0)
-
-# Crear el dataframe de entrada
-input_data = pd.DataFrame({
-    'Age': [age],
-    'RoomService': [room_service],
-    'FoodCourt': [food_court],
-    'ShoppingMall': [shopping_mall],
-    'Spa': [spa],
-    'VRDeck': [vr_deck],
-    'TotalSpending': [room_service + food_court + shopping_mall + spa + vr_deck],
-    'SpendingPerAge': [(room_service + food_court + shopping_mall + spa + vr_deck) / (age + 1)]
-})
-
-# Convertir las entradas categóricas a los mismos tipos que en el entrenamiento
-input_data_categorical = pd.DataFrame({
-    'HomePlanet': [home_planet],
-    'CryoSleep': [cryo_sleep == 'True'],
-    'Destination': [destination],
-    'VIP': [vip == 'True']
-})
-
-# Añadir las variables categóricas codificadas
-input_data = pd.concat([input_data, pd.DataFrame(one_hot_encoder.transform(input_data_categorical), columns=one_hot_encoder.get_feature_names_out(categorical_columns))], axis=1)
-
-# Escalar los datos de entrada
-input_data_scaled = scaler.transform(input_data)
-
-# Hacer la predicción
-prediction = gb_clf.predict(input_data_scaled)
-
-# Mostrar el resultado
-st.write('Predicción:', 'Transportado' if prediction[0] else 'No Transportado')
-
-
+# Custom GitHub button
+st.sidebar.markdown("""
+    <a href="https://github.com/Jotis86/Spaceship-Titanic-Rescue-Mission" target="_blank">
+        <button style="background-color:blue;color:white;padding:10px;border-radius:5px;border:none;cursor:pointer;">
+            GitHub Repo
+        </button>
+    </a>
+""", unsafe_allow_html=True)
