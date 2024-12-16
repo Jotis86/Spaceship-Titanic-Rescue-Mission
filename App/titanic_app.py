@@ -7,7 +7,7 @@ st.title('🚀 Passenger Transport Prediction 🌌')
 st.image('images/Cat_2.png')
 
 # Sidebar with image and navigation buttons
-st.sidebar.image('images/nave.png', use_column_width=True)
+st.sidebar.image('images/nave.png', use_container_width=True)
 st.sidebar.title('Navigation')
 page = st.sidebar.radio('Go to', ['Project Objectives', 'Development Process', 'Tools Used', 'Visualizations'])
 
